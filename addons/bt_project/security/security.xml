@@ -1,16 +1,15 @@
 <openerp>
   <data noupdate="0">
-    <record model="ir.module.category" id="module_category_test">
-        <field name="name">测试</field>
+    <record model="ir.module.category" id="module_category_project">
+        <field name="name">项目</field>
     </record>
-    <record model="res.groups" id="group_test_user">
-        <field name="name">测试用户</field>
-        <field name="category_id" ref="module_category_test"/>
+    <record model="res.groups" id="group_project_user">
+        <field name="name">项目用户</field>
+        <field name="category_id" ref="module_category_project"/>
     </record>
-    <record model="res.groups" id="group_test_manager">
-        <field name="name">测试管理</field>
-        <field name="implied_ids" eval="[(4, ref('group_test_user'))]"/>
-        <field name="category_id" ref="module_category_test"/>
+    <record model="res.groups" id="group_project_manager">
+        <field name="name">项目管理员</field>
+        <field name="category_id" ref="module_category_project"/>
     </record>
 </data>
 </openerp>

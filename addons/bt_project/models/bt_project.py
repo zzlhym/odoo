@@ -13,7 +13,7 @@ class BtProject(models.Model):
     name = fields.Char("项目名称")
     no = fields.Char("项目编号")
     date = fields.Date("项目日期")
-    user_id = fields.Many2one('bt.user', "PM")
+    user_id = fields.Many2one('bt.user', "负责人")
     pmo = fields.Char("PMO")
     note = fields.Text("备注")
 
