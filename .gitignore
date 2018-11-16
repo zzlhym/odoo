@@ -1,0 +1,5 @@
+odoo_config.conf
+*.pyc
+.idea
+*.bak
+*.lock

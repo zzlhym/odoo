@@ -1,0 +1,64 @@
+<openerp>
+    <data>
+        <record id="tree_bt_user" model="ir.ui.view">
+            <field name="name">user.tree</field>
+            <field name="model">bt.user</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="浏览部门">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="partner"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="form_bt_user" model="ir.ui.view">
+            <field name="name">user.form</field>
+            <field name="model">bt.user</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="编辑部门">
+                    <sheet>
+                        <group>
+                             <field name="name"/>
+                            <field name="type"/>
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+          <record model="ir.actions.act_window" id="act_open_user_view">
+            <field name="name">部门</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bt.user</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+         <record model="ir.actions.act_window.view" id="act_open_user_view_form">
+            <field name="act_window_id" ref="act_open_user_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_bt_user"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_user_view_tree">
+            <field name="act_window_id" ref="act_open_user_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="tree_bt_user"/>
+        </record>
+
+
+
+
+        <menuitem id="bt_user_menu" name="员工" parent="main_bt_partner_menu"  sequence="2"/>
+        <menuitem id="bt_base_menu_user" name="员工信息" parent="bt_user_menu" action="act_open_user_view" />
+    </data>
+</openerp>

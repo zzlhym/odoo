@@ -1,0 +1,72 @@
+<openerp>
+    <data>
+        <record id="tree_bt_project" model="ir.ui.view">
+            <field name="name">project.tree</field>
+            <field name="model">bt.project</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="浏览项目">
+                    <field name="no"/>
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="form_bt_project" model="ir.ui.view">
+            <field name="name">project.form</field>
+            <field name="model">bt.project</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="编辑项目">
+                    <sheet>
+                        <group>
+                            <field name="no"/>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="note"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+          <record model="ir.actions.act_window" id="act_open_project_view">
+            <field name="name">项目</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bt.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+         <record model="ir.actions.act_window.view" id="act_open_project_view_form">
+            <field name="act_window_id" ref="act_open_project_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_bt_project"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_project_view_tree">
+            <field name="act_window_id" ref="act_open_project_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="tree_bt_project"/>
+        </record>
+
+
+
+         <menuitem id="main_bt_menu" name="项目" sequence="1"/>
+
+        <menuitem id="bt_base_menu" name="项目" parent="main_bt_menu"  sequence="1"/>
+        <menuitem id="bt_base_menu_sub" name="项目信息" parent="bt_base_menu" action="act_open_project_view" />
+    </data>
+</openerp>
