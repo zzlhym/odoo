@@ -19,10 +19,11 @@ class BtTask(models.Model):
     done_rate = fields.Char("完成度", compute='_compute_rate')
     state = fields.Selection([('undo', '未开始'), ('doing', '进行中'), ('done', '已完成')], string="状态", compute='_compute_state')
 
-# todo 要循环list来计算，不能self
+# todo 要循环list来计算，不能self; 有计算得，先完善代码，再新建，不然会报错
 
     @api.multi
     def _compute_plan_hours(self):
+        #todo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         for record in self:
             if record.plan_start_time is None or record.plan_end_time is None:
                 record.plan_work_hours = 0
