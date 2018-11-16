@@ -29,6 +29,7 @@
         'views/bt_user.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/bt_task.xml',
 
     ],
     # only loaded in demonstration mode
