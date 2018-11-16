@@ -15,6 +15,7 @@
             </field>
         </record>
 
+
         <record id="form_bt_project" model="ir.ui.view">
             <field name="name">project.form</field>
             <field name="model">bt.project</field>
@@ -33,8 +34,39 @@
                                 <field name="user_id"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="任务信息">
+                                <group>
+                                    <div>
+                                         <field name="tasks">
+                                            <tree>
+                                                <field name="no"/>
+                                                <field name="name"/>
+                                                <field name="plan_start_time"/>
+                                                <field name="plan_end_time"/>
+                                                <field name="plan_work_hours"/>
+                                                <field name="actual_work_hours"/>
+                                                <field name="done_rate"/>
+                                                <field name="state"/>
+                                            </tree>
+                                         </field>
+                                    </div>
+                                </group>
+
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record id="view_task_filter" model="ir.ui.view">
+            <field name="name">sf_product select</field>
+            <field name="model">bt.task</field>
+            <field name="arch" type="xml">
+                <search string="Search Product">
+                    <field name="name"/>
+                </search>
             </field>
         </record>
 
@@ -42,6 +74,10 @@
             <field name="name">项目</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">bt.project</field>
+
+              <field name="search_view_id" ref="view_task_filter"/>
+
+
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[]</field>

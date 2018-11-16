@@ -18,6 +18,7 @@ class BtTask(models.Model):
     actual_work_hours = fields.Float("实际工时")
     done_rate = fields.Char("完成度", compute='_compute_rate')
     state = fields.Selection([('undo', '未开始'), ('doing', '进行中'), ('done', '已完成')], string="状态", compute='_compute_state')
+    project_id = fields.Many2one('bt.project', '所属项目')
 
 # todo 要循环list来计算，不能self; 有计算得，先完善代码，再新建，不然会报错
 

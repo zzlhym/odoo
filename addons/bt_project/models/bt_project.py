@@ -16,6 +16,7 @@ class BtProject(models.Model):
     user_id = fields.Many2one('bt.user', "负责人")
     pmo = fields.Char("PMO")
     note = fields.Text("备注")
+    tasks = fields.One2many('bt.task', 'project_id', '所有任务')
 
 
     _defaults = {
