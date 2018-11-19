@@ -14,6 +14,7 @@ class BtUser(models.Model):
     partner = fields.One2many('bt.partner', 'user_id', "所属部门")
     type = fields.Selection([('pm', 'PM'), ('pmo', 'PMO'), ('pd', 'PD')], string="职位")
     project = fields.One2many('bt.project', 'user_id')
+    tasks = fields.One2many('bt.task', 'user_id')
     _defaults = {
 
     }

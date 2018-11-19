@@ -18,10 +18,17 @@ class BtProject(models.Model):
     note = fields.Text("备注")
     tasks = fields.One2many('bt.task', 'project_id', '所有任务')
 
+    p1 = fields.One2many('bt.project', 'p1_id')
+    p1_id = fields.Many2one('bt.project')
+
+    task_id = fields.Many2many('bt.task')
+
 
     _defaults = {
 
     }
+
+
 
 
 

@@ -1,4 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 manage_bt_user 1,bt user,bt_project.model_bt_project,group_project_user,1,1,1,1
+manage_bt_manage 1,bt manage,bt_project.model_bt_project,group_project_manager,1,1,1,1
+
+
+manage_bt_task_user,bt task user,bt_project.model_bt_task,group_task_user,1,1,1,1
+manage_bt_task_manage,bt manage user,bt_project.model_bt_task,group_task_manager,1,1,1,1
 
