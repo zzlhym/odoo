@@ -23,6 +23,8 @@ class BtProject(models.Model):
 
     task_id = fields.Many2many('bt.task')
 
+    file = fields.Binary('附件')
+
 
     _defaults = {
 

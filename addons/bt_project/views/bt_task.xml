@@ -78,7 +78,7 @@
           <field name="domain_force">[('create_uid','=',user.id)]</field>
           <field name="groups" eval="[(4,ref('group_task_user'))]"/>
         </record>
-        
+
 
 
         <menuitem id="main_task_menu" name="任务" sequence="1"/>

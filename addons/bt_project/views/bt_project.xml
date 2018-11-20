@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="user_id"/>
                     <field name="date"/>
+                    <field name="file"/>
                     <field name="note"/>
                 </tree>
             </field>
@@ -27,6 +28,7 @@
                             <field name="no"/>
                             <field name="name"/>
                             <field name="date"/>
+                            <field name="file"/>
                             <field name="note"/>
                         </group>
                         <group>
